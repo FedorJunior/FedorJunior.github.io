@@ -1,0 +1,22 @@
+table thead {
+    background: darkgray;
+}
+
+table td, table th {
+    text-align: center;
+}
+
+.caret:hover, .glyphicon, .sure span {
+    cursor: pointer;
+}
+
+.disable {
+    pointer-events: none;
+    color: dimgrey;
+    cursor: text;
+}
+
+.sure span:hover {
+    text-decoration: underline;
+}
+

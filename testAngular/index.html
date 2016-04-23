@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Welcome</title>
+    <script src="angular/angular.min.js"></script>
+    <script src="angular/angular-route.min.js"></script>
+    <script src="app.js"></script>
+    <script src="controllers/userCtrl.js"></script>
+    <script src="directives/sidebar.js"></script>
+    <script src="services/localStorage.js"></script>
+    <link href="style/style.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+<body class="well">
+    <div class="container-fluid" ng-controller="userCtrl">
+
+        <div class="row">
+            <div class="col-md-8">
+                <div class="panel panel-primary">
+                    <div class="panel-heading"><label for="name"><h2>Add new Person</h2></label></div>
+                    <div class="panel-body">
+                        <form name="userName" class="form-inline">
+                            <div class="form-group">
+                                <input type="text" id="name" size="50" maxlength="35" class="form-control"
+                                       placeholder="Name" ng-model="newUser.name">
+                            </div>
+                            <div class="checkbox">
+                                <label class="checkbox-inline"><input type="checkbox" ng-model="newUser.super">Super power</label>
+                                <label class="checkbox-inline"><input type="checkbox" ng-model="newUser.rich">Rich</label>
+                                <label class="checkbox-inline"><input type="checkbox" ng-model="newUser.genius">Genius</label>
+                            </div>
+                            <button class="btn btn-success" ng-disabled="newUser.name.length>0?false:true"
+                                    ng-click="addUser(newUser);redirectTo()">Add</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <sidebar></sidebar>
+        </div>
+
+
+        <ng-view></ng-view>
+    </div>
+</body>
+</html>

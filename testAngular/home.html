@@ -1,0 +1,43 @@
+
+    <div class="row" ng-show="users.length>0?true:false">
+        <div class="col-md-8">
+            <div class="panel panel-default">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                    <tr>
+                        <th><span class="caret" ng-click="sortBy('name')"></span>Name</th>
+                        <th><span class="caret" ng-click="sortBy('-super')"></span>Super Power</th>
+                        <th><span class="caret" ng-click="sortBy('-rich')"></span>Rich</th>
+                        <th><span class="caret" ng-click="sortBy('-genius')"></span>Genius</th>
+                        <th><span class="caret"></span>Delete</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="user in users | orderBy:sort:reverse">
+                        <td>{{user.name}}</td>
+                        <td><label><input type="checkbox" ng-checked="user.super" ng-model="user.super"></label></td>
+                        <td><label><input type="checkbox" ng-checked="user.rich" ng-model="user.rich"></label></td>
+                        <td><label><input type="checkbox" ng-checked="user.genius" ng-model="user.genius"></label></td>
+                        <td><span ng-if="!user.isHide" class="glyphicon glyphicon-remove-circle"
+                                  ng-click="isSure(user)"></span>
+                                    <span ng-if="user.isHide" class="sure">Are you sure?(
+                                          <span ng-click="removeUser(user)">Yes</span>
+                                          <span ng-click="noRemove(user)">No</span>)
+                                    </span>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <ul class="breadcrumb well">
+                <li><a href="#/super" ng-class="spow>0?'':'disable'">Super Power</a></li>
+                <li><a href="#/rich" ng-class="rich>0?'':'disable'">Rich</a></li>
+                <li><a href="#/genius" ng-class="genius>0?'':'disable'">Genius</a></li>
+            </ul>
+        </div>
+    </div>
+
+
+
+
+

@@ -1,0 +1,13 @@
+<div class="col-md-4">
+    <div class="panel panel-primary">
+        <div class="panel-heading"><h2>Sidebar</h2></div>
+        <div class="panel-body">
+            <h2><a href="#/home">Total persons:</a>{{users.length}}</h2>
+            <div ng-show="users.length>0?true:false">
+                <h5><a href="#/super">With super power: </a><span ng-bind="spow =(users | filter:{super:true}).length"></span></h5>
+                <h5><a href="#/rich">Rich: </a><span ng-bind="rich =(users | filter:{rich:true}).length"></span></h5>
+                <h5><a href="#/genius">Genius: </a><span ng-bind="genius =(users | filter:{genius:true}).length"></span></a></h5>
+            </div>
+        </div>
+    </div>
+</div>
